@@ -1,0 +1,13 @@
+.card{
+    max-width: 380px;
+    border: none;
+    color: var(--body-text-color);
+    img{
+        max-height: 300px;
+        object-fit: cover;
+    }
+}
+
+p{
+    font-size: 14px;
+}

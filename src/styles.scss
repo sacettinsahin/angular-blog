@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --primary-color: #026467;
+    --secondary-color: #e5f5ea;
+    --body-text-color: #596392;
+    --navbar-footer-color: #f9f9f9;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: var(--body-text-color);
+}
+a{
+    text-decoration: none!important;
+    color: var(--primary-color)!important ;
+}
+.logo{
+    padding: 5px 20px;
+    //border-radius: 20px;
+    background-color: var(--secondary-color) ;
+    color: var(--primary-color);
+}
+.nav-link{
+    color: var(--primary-color);
+}
+.shadow-effect{
+    border: none;
+    box-shadow:  0px 0px 33px -10px rgba(91,114,254, 0.3);
+}
+.card{
+    border-radius: 0px!important;
+    border: none!important;
+}
+.bg-theme{
+    background-color: var(--primary-color);
+}
+.bg-secondary-theme{
+    background-color: var(--secondary-color);
+}
+.text-theme-primary{
+    color: var(--primary-color);
+}
+
+input[type = text], input[type = email] {
+    height: 60px;
+    padding-left: 20px;
+    font-size: 13px;
+    width: 100%;
+}
+
+.btn-theme{
+    height: 60px;
+    padding: 0px 45px!important;
+    border: none;
+    font-size: 13px;
+    background-color: var(--primary-color)!important;
+    color: #fff!important;
+}
