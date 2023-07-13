@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoritesService } from '../../services/categorites.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-post',
@@ -12,8 +13,23 @@ export class NewPostComponent implements OnInit {
   imgSrc:any="https://placehold.co/100x100"
   selectedImg:any
   categories:any[]
+  
+  postForm:FormGroup
 
-  constructor(private categoryService: CategoritesService) { }
+  constructor(private categoryService: CategoritesService, private fb:FormBuilder) { 
+    this.postForm = this.fb.group({
+      title: ["" ,[Validators.required, Validators.minLength(10)]],
+      permalink: ["",Validators.required],
+      excerpt: ["",[Validators.required, Validators.minLength(50)]],
+      category: ["",Validators.required],
+      postImg: ["",Validators.required],
+      content: ["",Validators.required],
+    })
+  }
+
+  get fc(){
+    return this.postForm.controls
+  }
 
   ngOnInit(): void {
     this.categoryService.loadData().subscribe(res=>{
