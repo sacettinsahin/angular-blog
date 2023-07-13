@@ -6,16 +6,17 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
-
-
+import { AllPostsComponent } from './pages/all-posts/all-posts.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
 
 @NgModule({
-  declarations: [AdminLayoutComponent, DashboardComponent, CategoriesComponent],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    SharedModule,
-    FormsModule
-  ]
+  declarations: [
+    AdminLayoutComponent,
+    DashboardComponent,
+    CategoriesComponent,
+    AllPostsComponent,
+    NewPostComponent,
+  ],
+  imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule],
 })
-export class AdminModule { }
+export class AdminModule {}

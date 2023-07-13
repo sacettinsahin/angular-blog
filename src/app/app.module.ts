@@ -11,7 +11,7 @@ import { AdminModule } from './admin/admin.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {ToastrModule} from "ngx-toastr"
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({

@@ -10,6 +10,8 @@ import { UiLayoutComponent } from './ui/layouts/ui-layout/ui-layout.component';
 import { AdminLayoutComponent } from './admin/layouts/admin-layout/admin-layout.component';
 import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
 import { CategoriesComponent } from './admin/pages/categories/categories.component';
+import { AllPostsComponent } from './admin/pages/all-posts/all-posts.component';
+import { NewPostComponent } from './admin/pages/new-post/new-post.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,8 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'categories', component: CategoriesComponent },
+      {path:"posts", component: AllPostsComponent},
+      {path:"posts/new", component: NewPostComponent}
     ],
   },
 ];
