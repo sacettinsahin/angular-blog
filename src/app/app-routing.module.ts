@@ -8,6 +8,8 @@ import { ContactUsComponent } from './ui/pages/contact-us/content-us.component';
 import { AboutComponent } from './ui/pages/about/about.component';
 import { UiLayoutComponent } from './ui/layouts/ui-layout/ui-layout.component';
 import { AdminLayoutComponent } from './admin/layouts/admin-layout/admin-layout.component';
+import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
+import { CategoriesComponent } from './admin/pages/categories/categories.component';
 
 const routes: Routes = [
   {
@@ -26,9 +28,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: AdminLayoutComponent,
-    // children:[
-    //   {path:"dashboard", component:}
-    // ]
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'categories', component: CategoriesComponent },
+    ],
   },
 ];
 

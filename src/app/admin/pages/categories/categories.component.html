@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 bg-secondary-theme p-5 shadow-effect">
+      <h3 class="text-center text-theme-primary">{{formStatus}} Categories</h3>
+      <p class="text-center mb-5">You can {{formStatus}} new categories from here...</p>
+
+      <form
+        class="form-inlie text-center d-flex gap-2"
+        #categoryForm="ngForm"
+        (ngSubmit)="onSubmit(categoryForm)"
+      >
+        <div class="form-group col-md-10">
+          <input
+            type="text"
+            class="form-control shadow-effect"
+            placeholder="{{formStatus}} Category"
+            name="category"
+            #newCategory="ngModel"
+            required
+            [(ngModel)]="formCategory"
+            [ngClass]="{ 'invalid-input' : newCategory.touched && newCategory.invalid}"
+          />
+          <small
+            *ngIf="newCategory.touched && newCategory.invalid"
+            class="text-danger"
+            >Category field is required</small
+          >
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-block btn-info btn-theme" [disabled]="categoryForm.invalid">{{formStatus}} Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mt-5 mb-5">
+
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-effect">
+        <div class="card-body">
+          <table class="table row-border hover">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Category</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of categoryResponse; index as i">
+                <td>{{i+1}}</td>
+                <td>{{item.data.category}}</td>
+                <td>
+                  <button class="btn btn-sm btn-warning" (click)="onEdit(item.data.category, item.id)">Edit</button>
+                  <button class="btn btn-sm btn-danger mx-3" (click)="onDelete(item.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
