@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <form [formGroup]="postForm">
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-7">
         <div class="card shadow-effect">
@@ -18,7 +18,9 @@
                 class="form-control"
                 (keyup)="onTitleChanged($event)"
                 formControlName="title"
-                [ngClass]="{ 'is-invalid' : fc.title.touched && fc.title.invalid }"
+                [ngClass]="{
+                  'is-invalid': fc.title.touched && fc.title.invalid
+                }"
               />
               <div *ngIf="fc.title.errors?.required" class="">
                 <div
@@ -46,7 +48,9 @@
                 name="permalink"
                 disabled
                 formControlName="permalink"
-                [ngClass] = "{'is-invalid' : fc.permalink.touched && fc.permalink.invalid}"
+                [ngClass]="{
+                  'is-invalid': fc.permalink.touched && fc.permalink.invalid
+                }"
               />
               <div *ngIf="fc.permalink.errors?.required" class="">
                 <div
@@ -64,7 +68,9 @@
                 rows="10"
                 class="form-control"
                 formControlName="excerpt"
-                 [ngClass] = "{'is-invalid' : fc.excerpt.touched && fc.excerpt.invalid}"
+                [ngClass]="{
+                  'is-invalid': fc.excerpt.touched && fc.excerpt.invalid
+                }"
               ></textarea>
               <div *ngIf="fc.excerpt.errors?.required" class="">
                 <div
@@ -93,12 +99,15 @@
             <br />
             <div class="form-group">
               <label>Category</label>
-              <select class="form-select" formControlName="category"  [ngClass] = "{'is-invalid' : fc.category.touched && fc.category.invalid}" >
+              <select
+                class="form-select"
+                formControlName="category"
+                [ngClass]="{
+                  'is-invalid': fc.category.touched && fc.category.invalid
+                }"
+              >
                 <option selected disabled>Please select a category</option>
-                <option
-                  *ngFor="let category of categories"
-                  [value]="category.data.category"
-                >
+                <option *ngFor="let category of categories"  value="{{category.id}}-{{category.data.category}}">
                   {{ category.data.category }}
                 </option>
               </select>
@@ -121,10 +130,10 @@
                 accept="image/*"
                 (change)="showPreview($event)"
                 formControlName="postImg"
-                [ngClass] = "{'is-invalid' : fc.postImg.touched && fc.postImg.invalid}"
+                [ngClass]="{
+                  'is-invalid': fc.postImg.touched && fc.postImg.invalid
+                }"
               />
-             
-            
             </div>
           </div>
         </div>
@@ -155,7 +164,9 @@
         </div>
       </div>
       <div class="col-md-12 mb-5 mt-5 d-flex justify-content-end">
-        <button class="btn btn-info btn-theme" [disabled]="postForm.invalid">Save Post</button>
+        <button class="btn btn-info btn-theme" [disabled]="postForm.invalid">
+          Save Post
+        </button>
         <button routerLink="/dashboard/posts" class="btn btn-warning mx-3">
           Back to Post
         </button>
