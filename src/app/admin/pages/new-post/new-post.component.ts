@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoritesService } from '../../services/categorites.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../models/post';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'app-new-post',
@@ -18,7 +19,8 @@ export class NewPostComponent implements OnInit {
 
   constructor(
     private categoryService: CategoritesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private postService: PostsService
   ) {
     this.postForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(10)]],
@@ -75,6 +77,6 @@ export class NewPostComponent implements OnInit {
       createdAt: new Date(),
     };
 
-    console.log("post data: ",postData)
+    this.postService.uploadImage(this.selectedImg, postData)
   }
 }

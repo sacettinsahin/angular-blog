@@ -11,6 +11,8 @@ import { AdminModule } from './admin/admin.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+
 import {ToastrModule} from "ngx-toastr";
 import { HttpClientModule } from '@angular/common/http';
 
@@ -29,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     //firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     ToastrModule.forRoot(),
     HttpClientModule
   ],
