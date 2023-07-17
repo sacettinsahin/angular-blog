@@ -8,11 +8,14 @@ import { PostsService } from '../../services/posts.service';
 })
 export class AllPostsComponent implements OnInit {
 
+  postArray:any[] = []
+
   constructor(private postService:PostsService) { }
 
   ngOnInit(): void {
     this.postService.loadData().subscribe(res=>{
       console.log(res)
+      this.postArray = res
     })
   }
 
