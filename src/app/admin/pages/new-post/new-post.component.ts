@@ -81,5 +81,6 @@ export class NewPostComponent implements OnInit {
     //this.postService.uploadImage(this.selectedImg, postData) 06.25
     this.postForm.reset();
     this.imgSrc = "https://placehold.co/100x100"
+    this.postService.saveData(postData)
   }
 }
