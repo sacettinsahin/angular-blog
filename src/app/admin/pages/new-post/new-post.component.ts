@@ -12,6 +12,7 @@ import { PostsService } from '../../services/posts.service';
 export class NewPostComponent implements OnInit {
   permalink: string = '';
   imgSrc: any = 'https://placehold.co/100x100';
+  //"./assets/placeholder-image.jpg"
   selectedImg: any;
   categories: any[];
 
@@ -77,6 +78,8 @@ export class NewPostComponent implements OnInit {
       createdAt: new Date(),
     };
 
-    this.postService.uploadImage(this.selectedImg, postData)
+    //this.postService.uploadImage(this.selectedImg, postData) 06.25
+    this.postForm.reset();
+    this.imgSrc = "https://placehold.co/100x100"
   }
 }
