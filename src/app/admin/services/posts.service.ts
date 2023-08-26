@@ -66,4 +66,8 @@ export class PostsService {
         })
       )
     }
+
+    loadOneData(id){
+      return this.afs.collection(`posts/${id}`).valueChanges()
+    }
 }

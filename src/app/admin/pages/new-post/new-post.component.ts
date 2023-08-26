@@ -3,6 +3,7 @@ import { CategoritesService } from '../../services/categorites.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../models/post';
 import { PostsService } from '../../services/posts.service';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-new-post',
@@ -21,8 +22,19 @@ export class NewPostComponent implements OnInit {
   constructor(
     private categoryService: CategoritesService,
     private fb: FormBuilder,
-    private postService: PostsService
+    private postService: PostsService,
+    private route:ActivatedRoute
   ) {
+
+    this.route.queryParams.subscribe(val=>{
+      console.log(val)
+      this.postService.loadOneData(val.id).subscribe(post=>{
+        console.log("post",post)
+      })
+    })
+
+    
+
     this.postForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(10)]],
       permalink: ['', Validators.required],
